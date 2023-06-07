@@ -8,6 +8,8 @@ import SingUp from "../Pages/SingUp/SingUp";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import MyClasses from "../Dashboard/Dashboard/MyClasses/MyClasses";
+import InstructorDashboard from "../Dashboard/instructorDashboard/instructorDashboard";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: "my-classes",
         element: <MyClasses></MyClasses>,
+      },
+      {
+        path: "instructorDashboard",
+        element: <InstructorDashboard></InstructorDashboard>,
       },
     ],
   },

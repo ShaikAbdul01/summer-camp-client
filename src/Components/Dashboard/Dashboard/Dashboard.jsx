@@ -34,6 +34,11 @@ const Dashboard = () => {
                 My Enrolled Classes
               </Link>
             </li>
+            <li>
+              <Link to="/dashboard/instructorDashboard">
+              instructorDashboard
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
