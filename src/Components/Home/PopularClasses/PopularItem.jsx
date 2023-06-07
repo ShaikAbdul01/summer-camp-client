@@ -30,7 +30,7 @@ const PopularItem = ({ classItem }) => {
           Number of Students: {students}
         </p>
         <p className="text-gray-700 tracking-wide">Category: {category}</p>
-        <button className="mt-6 py-2 px-4 bg-yellow-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">
+        <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">
           Buy Now
         </button>
       </div>
