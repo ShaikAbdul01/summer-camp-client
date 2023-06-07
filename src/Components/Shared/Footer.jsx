@@ -1,4 +1,5 @@
 import { FaPhoneAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
 
 const Footer = () => {
@@ -8,13 +9,14 @@ const Footer = () => {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12 ">
             <div className="mb-10 w-full">
-              <a href="/" className="mb-6 inline-block max-w-[160px]">
-                <img
+              <Link to="/" className="mb-6 inline-block ">
+                {/*  <img
                   src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
                   alt="logo"
                   className="max-w-full"
-                />
-              </a>
+                /> */}
+                <h2 className="text-xl font-bold">Artistry Academy</h2>
+              </Link>
               <p className="text-body-color mb-7 text-base">
                 Sed ut perspiciatis undmnis is iste natus error sit amet
                 voluptatem totam rem aperiam.
@@ -34,36 +36,36 @@ const Footer = () => {
               </h4>
               <ul>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     SaaS Development
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Our Products
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     User Flow
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     User Strategy
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -73,36 +75,36 @@ const Footer = () => {
               <h4 className="text-dark mb-9 text-lg font-semibold">Company</h4>
               <ul>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     About TailGrids
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Contact & Support
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Success History
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Setting & Privacy
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -114,36 +116,36 @@ const Footer = () => {
               </h4>
               <ul>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Premium Support
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Our Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Know Our Team
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
                     Download App
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -154,30 +156,30 @@ const Footer = () => {
                 Follow Us On
               </h4>
               <div className="mb-6 flex items-center justify-center">
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-dark  mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5]  sm:mr-4 lg:mr-3 xl:mr-4"
                 >
                   <SocialIcon url="https://facebook.com/jaketrent" />
-                </a>
-                <a
-                  href="/"
+                </Link>
+                <Link
+                  to="/"
                   className="text-dark  mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5]  sm:mr-4 lg:mr-3 xl:mr-4"
                 >
                   <SocialIcon url="https://twitter.com/jaketrent" />
-                </a>
-                <a
-                  href="/"
+                </Link>
+                <Link
+                  to="/"
                   className="text-dark  mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5]  sm:mr-4 lg:mr-3 xl:mr-4"
                 >
                   <SocialIcon url="https://instagram.com/jaketrent" />
-                </a>
-                <a
-                  href="/"
+                </Link>
+                <Link
+                  to="/"
                   className="text-dark  mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5]  sm:mr-4 lg:mr-3 xl:mr-4"
                 >
                   <SocialIcon url="https://linkedin.com/jaketrent" />
-                </a>
+                </Link>
               </div>
               <p className="text-body-color text-base">&copy; 2023 Shaik</p>
             </div>
