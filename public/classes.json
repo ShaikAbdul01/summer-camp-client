@@ -1,0 +1,94 @@
+{
+  "classes": [
+    {
+      "_id": 1,
+      "image": "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBhaW50aW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "name": "Painting Basics",
+      "instructorName": "John Smith",
+      "availableSeats": 15,
+      "price": 80,
+      "category": "Painting",
+      "students": 20
+    },
+    {
+      "_id": 2,
+      "image": "https://plus.unsplash.com/premium_photo-1673514503551-82b1623632c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZHJhd2luZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Introduction to Drawing",
+      "instructorName": "Emily Johnson",
+      "availableSeats": 10,
+      "price": 60,
+      "category": "Drawing",
+      "students": 15
+    },
+    {
+      "_id": 3,
+      "image": "https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3JhZnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Crafts and DIY",
+      "instructorName": "Sarah Davis",
+      "availableSeats": 12,
+      "price": 70,
+      "category": "Crafts",
+      "students": 18
+    },
+    {
+      "_id": 4,
+      "image": "https://plus.unsplash.com/premium_photo-1675623429744-855347178805?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FsbGlncmFwaHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Modern Calligraphy",
+      "instructorName": "Michael Brown",
+      "availableSeats": 8,
+      "price": 90,
+      "category": "Calligraphy",
+      "students": 10
+    },
+    {
+      "_id": 5,
+      "image": "https://plus.unsplash.com/premium_photo-1661573121995-a85fab517628?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBob3RvZ3JhcGh5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "name": "Introduction to Photography",
+      "instructorName": "Jessica Roberts",
+      "availableSeats": 20,
+      "price": 100,
+      "category": "Photography",
+      "students": 25
+    },
+    {
+      "_id": 6,
+      "image": "https://images.unsplash.com/photo-1606640935390-5c6694facfec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c2N1bHB0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "name": "Sculpture Workshop",
+      "instructorName": "David Wilson",
+      "availableSeats": 6,
+      "price": 120,
+      "category": "Sculpture",
+      "students": 8
+    },
+    {
+      "_id": 7,
+      "image": "https://images.unsplash.com/photo-1607556671927-78a6605e290b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvdHRlcnl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Pottery Techniques",
+      "instructorName": "Olivia Thompson",
+      "availableSeats": 10,
+      "price": 75,
+      "category": "Pottery",
+      "students": 12
+    },
+    {
+      "_id": 8,
+      "image": "https://plus.unsplash.com/premium_photo-1667502842264-9cdcdac36086?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2F0ZXJjb2xvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Watercolor Painting",
+      "instructorName": "Andrew Mitchell",
+      "availableSeats": 15,
+      "price": 85,
+      "category": "Painting",
+      "students": 18
+    },
+    {
+      "_id": 9,
+      "image": "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhcGhpYyUyMGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "name": "Graphic Design Fundamentals",
+      "instructorName": "Sophia Anderson",
+      "availableSeats": 12,
+      "price": 95,
+      "category": "Design",
+      "students": 15
+    }
+  ]
+}
