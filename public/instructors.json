@@ -1,0 +1,97 @@
+{
+  "instructors": [
+    {
+      "_id": "1",
+      "name": "John Smith",
+      "email": "johnsmith@example.com",
+      "image": "john_smith.jpg",
+      "classesTaken": 3,
+      "classNames": ["Guitar Lessons", "Music Theory", "Songwriting"]
+    },
+    {
+      "_id": "2",
+      "name": "Emily Johnson",
+      "email": "emilyjohnson@example.com",
+      "image": "emily_johnson.jpg",
+      "classesTaken": 5,
+      "classNames": [
+        "Piano Masterclass",
+        "Music Composition",
+        "Music History",
+        "Ear Training",
+        "Improvisation"
+      ]
+    },
+    {
+      "_id": "3",
+      "name": "Sophia Williams",
+      "email": "sophiawilliams@example.com",
+      "image": "sophia_williams.jpg",
+      "classesTaken": 2,
+      "classNames": ["Ballet Dance", "Contemporary Dance"]
+    },
+    {
+      "_id": "4",
+      "name": "Michael Davis",
+      "email": "michaeldavis@example.com",
+      "image": "michael_davis.jpg",
+      "classesTaken": 4,
+      "classNames": [
+        "Watercolor Painting",
+        "Oil Painting",
+        "Drawing Fundamentals",
+        "Portrait Drawing"
+      ]
+    },
+    {
+      "_id": "5",
+      "name": "Emma Wilson",
+      "email": "emmawilson@example.com",
+      "image": "emma_wilson.jpg",
+      "classesTaken": 3,
+      "classNames": [
+        "Photography Workshop",
+        "Photo Editing",
+        "Street Photography"
+      ]
+    },
+    {
+      "_id": "6",
+      "name": "David Thompson",
+      "email": "davidthompson@example.com",
+      "image": "david_thompson.jpg",
+      "classesTaken": 3,
+      "classNames": ["Culinary Arts", "Baking Techniques", "Gourmet Cuisine"]
+    },
+    {
+      "_id": "7",
+      "name": "Sophie Anderson",
+      "email": "sophieanderson@example.com",
+      "image": "sophie_anderson.jpg",
+      "classesTaken": 4,
+      "classNames": ["Yoga Basics", "Meditation", "Pilates", "Mindfulness"]
+    },
+    {
+      "_id": "8",
+      "name": "Daniel Wilson",
+      "email": "danielwilson@example.com",
+      "image": "daniel_wilson.jpg",
+      "classesTaken": 2,
+      "classNames": ["Web Development", "JavaScript Fundamentals"]
+    },
+    {
+      "_id": "9",
+      "name": "Olivia Thompson",
+      "email": "oliviathompson@example.com",
+      "image": "olivia_thompson.jpg",
+      "classesTaken": 5,
+      "classNames": [
+        "Graphic Design",
+        "UI/UX Design",
+        "Logo Design",
+        "Adobe Illustrator",
+        "Design Thinking"
+      ]
+    }
+  ]
+}
