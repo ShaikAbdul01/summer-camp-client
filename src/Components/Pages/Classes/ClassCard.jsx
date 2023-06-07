@@ -36,7 +36,7 @@ const ClassCard = ({ classItem }) => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(classItem),
+        body: JSON.stringify(classItem)
       })
         .then((res) => res.json())
         .then((data) => {
@@ -61,7 +61,7 @@ const ClassCard = ({ classItem }) => {
         confirmButtonText: "Login",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/sign-in", { state: { from: location } });
+          navigate("/sing-in", { state: { from: location } });
         }
       });
     }

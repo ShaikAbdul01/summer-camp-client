@@ -82,7 +82,7 @@ const Navbar = () => {
             <li>
               <Link
                 className="text-sm hover:text-blue-600 text-gray-500"
-                to="/dashboard"
+                to="/dashboard/my-classes"
               >
                 Dashboard
               </Link>

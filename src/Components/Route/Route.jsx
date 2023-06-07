@@ -7,6 +7,7 @@ import SingIn from "../Pages/SingIn/SingIn";
 import SingUp from "../Pages/SingUp/SingUp";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import MyClasses from "../Dashboard/Dashboard/MyClasses/MyClasses";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -35,11 +36,18 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: (
       <PrivateRoute>
         <Dashboard></Dashboard>
       </PrivateRoute>
     ),
+
+    children: [
+      {
+        path: "my-classes",
+        element: <MyClasses></MyClasses>,
+      },
+    ],
   },
 ]);

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const PopularItem = ({ classItem }) => {
   const {
     image,
@@ -30,9 +32,10 @@ const PopularItem = ({ classItem }) => {
           Number of Students: {students}
         </p>
         <p className="text-gray-700 tracking-wide">Category: {category}</p>
-        <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">
+        <Link to="/classes"><button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">
           Buy Now
-        </button>
+        </button></Link>
+        
       </div>
     </div>
   );
