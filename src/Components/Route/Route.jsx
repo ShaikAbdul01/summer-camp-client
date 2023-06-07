@@ -5,6 +5,8 @@ import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import SingIn from "../Pages/SingIn/SingIn";
 import SingUp from "../Pages/SingUp/SingUp";
+import Dashboard from "../Dashboard/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -31,5 +33,13 @@ export const router = createBrowserRouter([
         element: <SingUp></SingUp>,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
   },
 ]);
