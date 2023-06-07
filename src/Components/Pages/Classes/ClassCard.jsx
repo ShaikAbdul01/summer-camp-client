@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const ClassCard = ({ classItem, isLoggedIn, isAdmin }) => {
   const { image, name, instructorName, availableSeats, price, students, category } = classItem;
