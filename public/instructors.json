@@ -4,7 +4,7 @@
       "_id": "1",
       "name": "John Smith",
       "email": "johnsmith@example.com",
-      "image": "john_smith.jpg",
+      "image": "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "classesTaken": 3,
       "classNames": ["Guitar Lessons", "Music Theory", "Songwriting"]
     },
@@ -12,7 +12,7 @@
       "_id": "2",
       "name": "Emily Johnson",
       "email": "emilyjohnson@example.com",
-      "image": "emily_johnson.jpg",
+      "image": "https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2Zlc3Npb25hbCUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "classesTaken": 5,
       "classNames": [
         "Piano Masterclass",
@@ -26,7 +26,7 @@
       "_id": "3",
       "name": "Sophia Williams",
       "email": "sophiawilliams@example.com",
-      "image": "sophia_williams.jpg",
+      "image": "https://media.istockphoto.com/id/557608553/photo/confident-businessman-over-gray-background.webp?b=1&s=170667a&w=0&k=20&c=lLwXuEDvD4Ozvv2CjqERCJHMSoM09Zh2WRTjs0jFqDE=",
       "classesTaken": 2,
       "classNames": ["Ballet Dance", "Contemporary Dance"]
     },
@@ -34,7 +34,7 @@
       "_id": "4",
       "name": "Michael Davis",
       "email": "michaeldavis@example.com",
-      "image": "michael_davis.jpg",
+      "image": "https://media.istockphoto.com/id/495827884/photo/you-are-the-creator-of-your-own-success.webp?b=1&s=170667a&w=0&k=20&c=JSN5VBNnjwRO_nJHytfHAfU-35GgTlWtd4wlkIEAFJU=",
       "classesTaken": 4,
       "classNames": [
         "Watercolor Painting",
@@ -47,7 +47,7 @@
       "_id": "5",
       "name": "Emma Wilson",
       "email": "emmawilson@example.com",
-      "image": "emma_wilson.jpg",
+      "image": "https://media.istockphoto.com/id/1059661424/photo/mature-mixed-race-business-man.webp?b=1&s=170667a&w=0&k=20&c=R_VTz55PRxV2NCqj2j9LPKOP8CMMkKHKStaRr52shdU=",
       "classesTaken": 3,
       "classNames": [
         "Photography Workshop",
@@ -59,7 +59,7 @@
       "_id": "6",
       "name": "David Thompson",
       "email": "davidthompson@example.com",
-      "image": "david_thompson.jpg",
+      "image": "https://media.istockphoto.com/id/623274458/photo/creative-confidence.webp?b=1&s=170667a&w=0&k=20&c=IIjt7dvQrNGTbgUb4HMy2cWSO6OlLS3kLTloJ5Wa0aY=",
       "classesTaken": 3,
       "classNames": ["Culinary Arts", "Baking Techniques", "Gourmet Cuisine"]
     },
@@ -67,7 +67,7 @@
       "_id": "7",
       "name": "Sophie Anderson",
       "email": "sophieanderson@example.com",
-      "image": "sophie_anderson.jpg",
+      "image": "https://media.istockphoto.com/id/1286810719/photo/smiling-cheerful-young-adult-african-american-ethnicity-man-looking-at-camera-standing-at.webp?b=1&s=170667a&w=0&k=20&c=w8F2TQzgeu2j-SmDWLHuAyCjFbQJ0smF-RxXcXChTLg=",
       "classesTaken": 4,
       "classNames": ["Yoga Basics", "Meditation", "Pilates", "Mindfulness"]
     },
@@ -75,7 +75,7 @@
       "_id": "8",
       "name": "Daniel Wilson",
       "email": "danielwilson@example.com",
-      "image": "daniel_wilson.jpg",
+      "image": "https://media.istockphoto.com/id/935659716/photo/close-up-of-handshake-in-the-office.webp?b=1&s=170667a&w=0&k=20&c=-Gb9SuT2GqeS-V9Gct37URHRYjHoCG8TQ0_HbUpIGBw=",
       "classesTaken": 2,
       "classNames": ["Web Development", "JavaScript Fundamentals"]
     },
@@ -83,7 +83,7 @@
       "_id": "9",
       "name": "Olivia Thompson",
       "email": "oliviathompson@example.com",
-      "image": "olivia_thompson.jpg",
+      "image": "https://images.unsplash.com/photo-1589386417686-0d34b5903d23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "classesTaken": 5,
       "classNames": [
         "Graphic Design",
