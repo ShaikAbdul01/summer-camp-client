@@ -1,6 +1,5 @@
-
 const InstructorCard = ({ instructor }) => {
-    // console.log(instructor);
+  // console.log(instructor);
   return (
     <div className="bg-white p-4 rounded-lg shadow-md text-center">
       <img

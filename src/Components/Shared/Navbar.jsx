@@ -50,8 +50,8 @@ const Navbar = () => {
           <FaEllipsisV></FaEllipsisV>
         </li>
         <li>
-          <Link className="text-sm  hover:text-blue-600 text-gray-500" to="/">
-            Services
+          <Link className="text-sm  hover:text-blue-600 text-gray-500" to="/classes">
+            Classes
           </Link>
         </li>
         <li className="text-gray-300">
@@ -120,9 +120,9 @@ const Navbar = () => {
               <li className="mb-1">
                 <Link
                   className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                 to="/"
+                 to="/classes"
                 >
-                  Services
+                  Classes
                 </Link>
               </li>
               <li className="mb-1">
