@@ -7,7 +7,7 @@ const Classes = () => {
   useEffect(() => {
     fetch("classes.json")
       .then((res) => res.json())
-      .then((data) => setClasses(data.classes));
+      .then((data) => setClasses(data));
   }, []);
 
   return (

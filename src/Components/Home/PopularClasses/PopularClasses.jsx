@@ -9,7 +9,7 @@ const PopularClasses = () => {
     fetch("classes.json")
       .then((res) => res.json())
       .then((data) => {
-        const sortedClasses = data.classes.sort(
+        const sortedClasses = data.sort(
           (a, b) => b.students - a.students
         );
         const topClasses = sortedClasses.slice(0, 6);
