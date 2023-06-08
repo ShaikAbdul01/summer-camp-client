@@ -1,20 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+// import useAxiosSecure from "./useAxiosSecure";
 const token = localStorage.getItem("access-token");
-
 export const useClassItem = () => {
   const { user, loading } = useContext(AuthContext);
-
+  // const [axiosSecure] = useAxiosSecure();
   const {
     refetch,
-    data: classes = [],
+    data: classItem = [],
     error,
-    isLoading,
-  } = useQuery(
-    ["classItem", user?.email],
-    async () => {
+  } = useQuery({
+    queryKey: ["classItem", user?.email],
+    enabled: !loading,
+    queryFn: async () => {
       const res = await fetch(
         `http://localhost:5000/classItem?email=${user?.email}`,
         {
@@ -23,25 +22,19 @@ export const useClassItem = () => {
           },
         }
       );
-      if (!res.ok) {
-        throw new Error("Failed to fetch class items");
-      }
       return res.json();
     },
-    {
-      enabled: !loading,
-    }
-  );
+
+    /*  queryFn: async () => {
+      const response = await axiosSecure(`/classItem?email=${user?.email}`);
+      return response.data;
+    }, */
+  });
 
   if (error) {
-    console.log("Class item error:", error.message);
+    console.log("Cart error:", error.message);
     // You can display an error message to the user or handle the error as needed
   }
 
-  if (isLoading) {
-    // You can show a loading spinner or skeleton screen while the data is being fetched
-    return { classes: [], refetch, isLoading: true };
-  }
-
-  return { classes, refetch, isLoading: false };
+  return [classItem, refetch];
 };

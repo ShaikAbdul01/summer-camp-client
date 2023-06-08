@@ -1,15 +1,10 @@
 import { FaTrashAlt } from "react-icons/fa";
-import { useClassItem } from "../../../UseHooks/UseClassItem";
 import Swal from "sweetalert2";
-
+import { useClassItem } from "../../../UseHooks/UseClassItem";
 const MyClasses = () => {
-  const { classes, isLoading, refetch } = useClassItem();
+  const [classItem, refetch] = useClassItem();
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  const handleDelete = (classItemId) => {
+  const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -20,7 +15,7 @@ const MyClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/classItem/${classItemId}`, {
+        fetch(`http://localhost:5000/classItem/${item}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -33,7 +28,6 @@ const MyClasses = () => {
       }
     });
   };
-
   return (
     <div>
       <h3 className="text-4xl">My Selected Classes</h3>
@@ -52,7 +46,7 @@ const MyClasses = () => {
             </tr>
           </thead>
           <tbody>
-            {classes?.map((item, index) => (
+            {classItem?.map((item, index) => (
               <tr key={item._id}>
                 <td>{index + 1}</td>
                 <td>
