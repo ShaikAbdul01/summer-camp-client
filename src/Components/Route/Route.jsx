@@ -8,8 +8,9 @@ import SingUp from "../Pages/SingUp/SingUp";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import MyClasses from "../Dashboard/Dashboard/MyClasses/MyClasses";
-import InstructorDashboard from "../Dashboard/instructorDashboard/instructorDashboard";
 import AllUsers from "../Dashboard/Admin/AllUsers";
+import EnrolledClasses from "../Dashboard/Dashboard/MyClasses/EnrolledClasses";
+import InstructorDashboard from "../Dashboard/instructorDashboard/InstructorDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -51,13 +52,18 @@ export const router = createBrowserRouter([
         path: "all-users",
         element: <AllUsers></AllUsers>,
       },
+
+      {
+        path: "instructorDashboard",
+        element: <InstructorDashboard></InstructorDashboard>,
+      },
       {
         path: "my-classes",
         element: <MyClasses></MyClasses>,
       },
       {
-        path: "instructorDashboard",
-        element: <InstructorDashboard></InstructorDashboard>,
+        path: "my-enrolled-classes",
+        element: <EnrolledClasses></EnrolledClasses>,
       },
     ],
   },

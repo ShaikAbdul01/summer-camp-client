@@ -1,11 +1,13 @@
-/* import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider"; */
+
 import { Link, Outlet } from "react-router-dom";
+
 // import { useClassItem } from "../../UseHooks/UseClassItem";
 
 const Dashboard = () => {
   // const [classItem] = useClassItem();
-  const isAdmin = !false;
+  const isAdmin = false;
+  const isInstructor = false;
+  const isStudent = !false;
 
   return (
     <>
@@ -25,7 +27,8 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
-            {isAdmin ? (
+
+            {isAdmin && (
               <>
                 <li>
                   <Link to="/">Home</Link>
@@ -34,7 +37,9 @@ const Dashboard = () => {
                   <Link to="/dashboard/all-users">All Users</Link>
                 </li>
               </>
-            ) /* : instructor ? (
+            )}
+
+            {isInstructor && (
               <>
                 <li>
                   <Link to="/">Home</Link>
@@ -45,7 +50,9 @@ const Dashboard = () => {
                   </Link>
                 </li>
               </>
-            )  */: (
+            )}
+
+            {isStudent && (
               <>
                 <li>
                   <Link to="/">Home</Link>
