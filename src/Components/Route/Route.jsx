@@ -10,7 +10,10 @@ import PrivateRoute from "./PrivateRoute";
 import MyClasses from "../Dashboard/Dashboard/MyClasses/MyClasses";
 import AllUsers from "../Dashboard/Admin/AllUsers";
 import EnrolledClasses from "../Dashboard/Dashboard/MyClasses/EnrolledClasses";
-import InstructorDashboard from "../Dashboard/instructorDashboard/InstructorDashboard";
+import AddClasses from "../Dashboard/instructorDashboard/AddClasses";
+import InstructorClasses from "../Dashboard/instructorDashboard/InstructorClasses";
+import Update from "../Dashboard/instructorDashboard/Update";
+import ManageClasses from "../Dashboard/Admin/ManageClasses";
 
 export const router = createBrowserRouter([
   {
@@ -48,15 +51,30 @@ export const router = createBrowserRouter([
     ),
 
     children: [
+      // Admin
       {
         path: "all-users",
         element: <AllUsers></AllUsers>,
       },
-
       {
-        path: "instructorDashboard",
-        element: <InstructorDashboard></InstructorDashboard>,
+        path: "manageClasses",
+        element: <ManageClasses></ManageClasses>,
       },
+
+      // instructor Dashboard
+      {
+        path: "add-class",
+        element: <AddClasses></AddClasses>,
+      },
+      {
+        path: "InstructorClasses",
+        element: <InstructorClasses></InstructorClasses>,
+      },
+      {
+        path: "update",
+        element: <Update></Update>,
+      },
+      // My classes
       {
         path: "my-classes",
         element: <MyClasses></MyClasses>,

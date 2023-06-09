@@ -2,12 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../UseHooks/useAxiosSecure";
-import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import Typed from "react-typed";
 const AllUsers = () => {
-  const { user } = useContext(AuthContext);
-
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await axiosSecure.get(`/users`);
@@ -72,14 +67,6 @@ const AllUsers = () => {
   };
   return (
     <div className="w-full">
-      <h2 className="text-3xl font-bold text-center m-12">
-        <Typed
-          strings={[`Welcome ${user.email}`]}
-          typeSpeed={60}
-          backSpeed={30}
-          loop
-        />
-      </h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           {/* head */}

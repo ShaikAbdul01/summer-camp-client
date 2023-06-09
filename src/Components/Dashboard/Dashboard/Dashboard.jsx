@@ -1,13 +1,16 @@
-
+import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import Typed from "react-typed";
 
 // import { useClassItem } from "../../UseHooks/UseClassItem";
 
 const Dashboard = () => {
   // const [classItem] = useClassItem();
-  const isAdmin = false;
+  const { user } = useContext(AuthContext);
+  const isAdmin = !false;
   const isInstructor = false;
-  const isStudent = !false;
+  const isStudent = false;
 
   return (
     <>
@@ -15,6 +18,15 @@ const Dashboard = () => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
+          <h2 className="text-3xl font-bold text-center m-12">
+            <Typed
+              strings={[`Wecome ${user.email}`]}
+              typeSpeed={60}
+              backSpeed={30}
+              loop
+            />
+          </h2>
+
           <Outlet></Outlet>
           <label
             htmlFor="my-drawer-2"
@@ -36,6 +48,9 @@ const Dashboard = () => {
                 <li>
                   <Link to="/dashboard/all-users">All Users</Link>
                 </li>
+                <li>
+                  <Link to="/dashboard/manageClasses">Manage Classes</Link>
+                </li>
               </>
             )}
 
@@ -45,9 +60,10 @@ const Dashboard = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/instructorDashboard">
-                    instructorDashboard
-                  </Link>
+                  <Link to="/dashboard/add-class">Add a Class</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/InstructorClasses">My Classes</Link>
                 </li>
               </>
             )}

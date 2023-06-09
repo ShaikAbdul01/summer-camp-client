@@ -1,15 +1,54 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
-const InstructorDashboard = () => {
+const AddClasses = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const className = form?.className.value;
+    const classImage = form?.classImage.value;
+    const instructorEmail = form?.instructorEmail.value;
+    const availableSeats = form?.availableSeats.value;
+    const price = form?.price.value;
+
+    const addClass = {
+      className,
+      classImage,
+      email: instructorEmail,
+      availableSeats,
+      price,
+      status: "pending",
+    };
+
+    fetch("http://localhost:5000/addClass", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addClass),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire("Good job!", "Class Added successfully!", "success");
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding class:", error);
+      });
+  };
+
   return (
     <div className="bg-gray-100 p-6">
-      <h2 className="text-2xl text-center mb-4">Instructor Dashboard</h2>
-
+      <h2 className="text-3xl font-bold text-center m-12">Add a Class</h2>
       <div className="w-full mx-auto p-12">
-        <form className="bg-white rounded-lg shadow-md p-12">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-lg shadow-md p-12"
+        >
           <div className="mb-4">
             <label htmlFor="className" className="text-gray-700">
               Class Name:
@@ -23,7 +62,7 @@ const InstructorDashboard = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="className" className="text-gray-700">
+            <label htmlFor="classImage" className="text-gray-700">
               Class Image:
             </label>
             <input
@@ -31,22 +70,9 @@ const InstructorDashboard = () => {
               id="classImage"
               name="classImage"
               required
-              className="form-input mt-1 block w-full border-2 "
+              className="form-input mt-1 block w-full border-2"
             />
           </div>
-
-          {/* <div className="mb-4">
-              <label htmlFor="classImage" className="text-gray-700">
-                Class Image:
-              </label>
-              <input
-                type="file"
-                id="classImage"
-                name="classImage"
-                required
-                className="form-input mt-1 block w-full"
-              />
-            </div> */}
 
           <div className="mb-4">
             <label htmlFor="instructorEmail" className="text-gray-700">
@@ -88,16 +114,15 @@ const InstructorDashboard = () => {
             />
           </div>
 
-          <button
-            type="submit"
+          <input
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
-          >
-            Add
-          </button>
+            type="submit"
+            value="Add Class"
+          />
         </form>
       </div>
     </div>
   );
 };
 
-export default InstructorDashboard;
+export default AddClasses;
