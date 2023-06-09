@@ -11,7 +11,6 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Add request interceptor
     axiosSecure.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem("access-token");
@@ -26,7 +25,6 @@ const useAxiosSecure = () => {
       } */
     );
 
-    // Add response interceptor
     axiosSecure.interceptors.response.use(
       (response) => response,
       async (error) => {
@@ -34,7 +32,6 @@ const useAxiosSecure = () => {
           error.response &&
           (error.response.status === 401 || error.response.status === 403)
         ) {
-          // Handle unauthorized or forbidden response
           await logOut();
           navigate("/login");
         }

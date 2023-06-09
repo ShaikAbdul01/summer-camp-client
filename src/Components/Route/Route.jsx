@@ -14,11 +14,13 @@ import AddClasses from "../Dashboard/instructorDashboard/AddClasses";
 import InstructorClasses from "../Dashboard/instructorDashboard/InstructorClasses";
 import Update from "../Dashboard/instructorDashboard/Update";
 import ManageClasses from "../Dashboard/Admin/ManageClasses";
+import Errorpage from "../Pages/Errorpage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<Errorpage></Errorpage>,
     children: [
       {
         path: "/",
@@ -44,6 +46,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
+    errorElement:<Errorpage></Errorpage>,
     element: (
       <PrivateRoute>
         <Dashboard></Dashboard>

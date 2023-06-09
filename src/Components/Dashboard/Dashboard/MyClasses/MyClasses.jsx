@@ -1,7 +1,6 @@
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useClassItem } from "../../../UseHooks/UseClassItem";
-import Typed from "react-typed";
 
 const MyClasses = () => {
   const [classItem, refetch] = useClassItem();
@@ -32,14 +31,6 @@ const MyClasses = () => {
   };
   return (
     <div>
-      <h2 className="text-3xl font-bold text-center m-12">
-        <Typed
-          strings={[`My Selected Classes`]}
-          typeSpeed={60}
-          backSpeed={30}
-          loop
-        />
-      </h2>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* Head */}

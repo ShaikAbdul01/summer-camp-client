@@ -14,13 +14,13 @@ const ClassCard = ({ classItem }) => {
     students,
     category,
   } = classItem;
-  const { user } = useContext(AuthContext);
+  const { user, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+
   const handleAddtoClassItem = (classItem) => {
-    console.log(classItem);
     if (user && user.email) {
-      const classItem = {
+      const classItemData = {
         classItemId: _id,
         name,
         image,
@@ -31,12 +31,12 @@ const ClassCard = ({ classItem }) => {
         availableSeats,
         email: user.email,
       };
-      fetch(`http://localhost:5000/classItem`, {
+      fetch("http://localhost:5000/classItem", {
         method: "POST",
         headers: {
-          "content-type": "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(classItem)
+        body: JSON.stringify(classItemData),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -67,24 +67,33 @@ const ClassCard = ({ classItem }) => {
     }
   };
 
-  /*  
- isLoggedIn, isAdmin 
- const handleSelect = () => {
-    if (!isLoggedIn) {
-      alert("Please log in to select the course.");
+  const handleSelect = () => {
+    if (!user) {
+      Swal.fire({
+        title: "Please Login",
+        text: "You won't be able to select the course without logging in!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/sign-in", { state: { from: location } });
+        }
+      });
+    } else if (availableSeats === 0 || isAdmin) {
       return;
+    } else {
+      // Add your logic for selecting the class here
     }
-
-    if (availableSeats === 0 || isAdmin) {
-      return;
-    }
-
-    // Add your logic for selecting the class here
-  }; */
+  };
 
   return (
     <div
-      className={`bg-white shadow-lg hover:shadow-xl transition duration-500 rounded-lg w-full`}
+      className={`bg-white shadow-lg hover:shadow-xl transition duration-500 rounded-lg w-full ${
+        availableSeats === 0 ? "bg-red-100" : ""
+      }`}
     >
       <img
         className="rounded-t-lg w-full lg:h-[250px]"
@@ -109,16 +118,10 @@ const ClassCard = ({ classItem }) => {
         <button
           onClick={() => handleAddtoClassItem(classItem)}
           className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300"
-        >
-          Buy Now
-        </button>
-        {/* <button
-          className={`mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300 ${availableSeats === 0 || isAdmin ? "opacity-50 cursor-not-allowed" : ""}`}
-          onClick={handleSelect}
           disabled={availableSeats === 0 || isAdmin}
         >
-          {availableSeats === 0 ? "Not Available" : "Buy Now"}
-        </button> */}
+          {availableSeats === 0 || isAdmin ? "Not Available" : "Buy Now"}
+        </button>
       </div>
     </div>
   );
