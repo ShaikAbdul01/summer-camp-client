@@ -26,7 +26,7 @@ const Banner = () => {
           <p className="text-xl md:text-2xl lg:text-3xl">
             Unleash your creativity and explore the world of art.
           </p>
-          <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Learn More</button>
+          <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Sign Up</button>
         </div>
       </div>
       <div className="banner-slide h-[400px] md:h-[500px] lg:h-[700px]">
@@ -38,7 +38,7 @@ const Banner = () => {
           <p className="text-xl md:text-2xl lg:text-3xl">
             Join our diverse community of artists and express yourself.
           </p>
-          <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Get Started</button>
+          <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Sign Up</button>
         </div>
       </div>
       <div className="banner-slide h-[400px] md:h-[500px] lg:h-[700px]">
@@ -50,7 +50,7 @@ const Banner = () => {
           <p className="text-xl md:text-2xl lg:text-3xl">
             Experience innovative art classes and workshops.
           </p>
-          <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Enroll Now</button>
+          <button className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Sign Up</button>
         </div>
       </div>
     </Carousel>

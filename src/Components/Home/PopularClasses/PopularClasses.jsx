@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
-import PopularItem from "./PopularItem";
 import Typed from "react-typed";
+import useAxiosSecure from "../../UseHooks/useAxiosSecure";
+import PopularItem from "./PopularItem";
+import { useQuery } from "@tanstack/react-query";
 
 const PopularClasses = () => {
-  const [classes, setClasses] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
-  useEffect(() => {
-    fetch("http://localhost:5000/classes")
-      .then((res) => res.json())
-      .then((data) => {
-        const sortedClasses = data.sort(
-          (a, b) => b.students - a.students
-        );
-        const topClasses = sortedClasses.slice(0, 6);
-        setClasses(topClasses);
-      });
-  }, []);
+  const { data: classes = [] } = useQuery(["classes"], () =>
+    axiosSecure.get("/classes").then((res) => res.data)
+  );
+
+  const sortedClasses = [...classes].sort((a, b) => b.students - a.students);
+  const topClasses = sortedClasses.slice(0, 6);
 
   return (
     <div>
@@ -28,7 +24,7 @@ const PopularClasses = () => {
         />
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {classes.map((classItem) => (
+        {topClasses.map((classItem) => (
           <PopularItem key={classItem._id} classItem={classItem} />
         ))}
       </div>

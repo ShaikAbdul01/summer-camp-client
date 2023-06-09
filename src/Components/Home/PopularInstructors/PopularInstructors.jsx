@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
-import InstructorCard from "./InstructorCard";
+
+import { useQuery } from "@tanstack/react-query";
 import Typed from "react-typed";
+import InstructorCard from "../../Pages/Instructors/instructorCard";
 
 const PopularInstructors = () => {
-  const [instructors, setInstructors] = useState([]);
+  const { data: instructors = [] } = useQuery(["instructors"], () =>
+    fetch("http://localhost:5000/instructors").then((res) => res.json())
+  );
 
-  useEffect(() => {
-    fetch("http://localhost:5000/instructors")
-      .then((res) => res.json())
-      .then((data) => {
-        const sortedInstructors = data.sort(
-          (a, b) => b.classesTaken - a.classesTaken
-        );
-        const topInstructors = sortedInstructors.slice(0, 6);
-        setInstructors(topInstructors);
-      });
-  }, []);
+  const sortedInstructors = [...instructors].sort(
+    (a, b) => b.classesTaken - a.classesTaken
+  );
+  const topInstructors = sortedInstructors.slice(0, 6);
 
   return (
     <div>
@@ -28,7 +24,7 @@ const PopularInstructors = () => {
         />
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {instructors.map((instructor) => (
+        {topInstructors.map((instructor) => (
           <InstructorCard key={instructor._id} instructor={instructor} />
         ))}
       </div>
