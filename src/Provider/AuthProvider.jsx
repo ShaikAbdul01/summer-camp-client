@@ -1,17 +1,7 @@
 import { createContext, useEffect, useState } from "react";
-import {
-  GithubAuthProvider,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  getAuth,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile,
-} from "firebase/auth";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
@@ -19,7 +9,7 @@ const provider = new GoogleAuthProvider();
 const gitProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
@@ -31,6 +21,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
@@ -47,9 +38,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, gitProvider);
   };
+
   const resetPassword = (email) => {
     setLoading(true);
-
     return sendPasswordResetEmail(auth, email);
   };
 
@@ -59,14 +50,15 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscibe = onAuthStateChanged(auth, (loggedUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
       setLoading(false);
     });
     return () => {
-      unsubscibe();
+      unsubscribe();
     };
   }, []);
+
   const authInfo = {
     user,
     loading,
@@ -78,6 +70,7 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     logOut,
   };
+
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

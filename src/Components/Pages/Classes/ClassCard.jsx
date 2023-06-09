@@ -61,7 +61,7 @@ const ClassCard = ({ classItem }) => {
         confirmButtonText: "Login",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/sing-in", { state: { from: location } });
+          navigate("/sign-in", { state: { from: location } });
         }
       });
     }

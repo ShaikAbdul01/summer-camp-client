@@ -2,19 +2,22 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import SocialLogin from "../SingIn/SocialLogin";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile, signInWithGoogle } =
-    useContext(AuthContext);
+  // const navigate = useNavigate();
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
-  const handleSignUp = (data) => {
+  const handleSignUp = async (data) => {
     const { name, photoURL, email, password } = data;
 
     setError("");
@@ -36,33 +39,40 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setSuccess("User has been successfully created!!");
-        setError("");
-        updateUserProfile({ name, photoURL });
+        const loggedUser = result.user;
+        console.log(loggedUser);
+
+        updateUserProfile(name, photoURL)
+          .then(() => {
+            const saveUser = { name, email };
+            fetch(`http://localhost:5000/users`, {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Sing Up Successfull",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }
+              });
+          })
+          .catch((error) => console.log(error.message));
       })
       .catch((error) => {
         console.log(error.message);
-        setError(error.message);
-        setSuccess("");
       });
   };
 
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setSuccess("Sign up successful!");
-        setError("");
-      })
-      .catch((error) => {
-        console.log(error.message);
-        setError(error.message);
-        setSuccess("");
-      });
-  };
   return (
     <div className="my-8">
       <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 py-8">
@@ -165,23 +175,13 @@ const SignUp = () => {
                 <hr className="border-gray-300 border-1 w-full rounded-md" />
               </div>
 
-              <div className="flex mt-7 justify-center w-full">
-                {/*  <button className="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105">
-                  Facebook
-                </button> */}
-                <button
-                  onClick={handleGoogleSignIn}
-                  className="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
-                >
-                  Google
-                </button>
-              </div>
+              <SocialLogin></SocialLogin>
 
               <div className="mt-7">
                 <div className="flex justify-center items-center">
                   <label className="mr-2">Already have an account?</label>
                   <Link
-                    to="/sing-in"
+                    to="/sign-in"
                     className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
                   >
                     Please Sign In

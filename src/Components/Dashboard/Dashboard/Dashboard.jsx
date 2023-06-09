@@ -1,9 +1,12 @@
 /* import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider"; */
 import { Link, Outlet } from "react-router-dom";
+// import { useClassItem } from "../../UseHooks/UseClassItem";
 
 const Dashboard = () => {
-  // const { user } = useContext(AuthContext);
+  // const [classItem] = useClassItem();
+  const isAdmin = !false;
+
   return (
     <>
       <div className="drawer lg:drawer-open">
@@ -22,23 +25,41 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
-
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/my-classes">My Classes</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/my-enrolled-classes">
-                My Enrolled Classes
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/instructorDashboard">
-              instructorDashboard
-              </Link>
-            </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/all-users">All Users</Link>
+                </li>
+              </>
+            ) /* : instructor ? (
+              <>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/instructorDashboard">
+                    instructorDashboard
+                  </Link>
+                </li>
+              </>
+            )  */: (
+              <>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/my-classes">My Classes</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/my-enrolled-classes">
+                    My Enrolled Classes
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

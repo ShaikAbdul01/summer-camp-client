@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import SocialLogin from "./SocialLogin";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -33,7 +34,7 @@ const SignIn = () => {
       });
   };
 
-  const handleGoogleSignIn = () => {
+  /*  const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
@@ -47,7 +48,7 @@ const SignIn = () => {
         setError(error.message);
         setSuccess("");
       });
-  };
+  }; */
 
   const from = location.state?.from?.pathname || "/";
 
@@ -114,20 +115,13 @@ const SignIn = () => {
                   <hr className="border-gray-300 border-1 w-full rounded-md" />
                 </div>
 
-                <div className="flex mt-7 justify-center w-full">
-                  <button
-                    onClick={handleGoogleSignIn}
-                    className="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
-                  >
-                    Google
-                  </button>
-                </div>
+                <SocialLogin></SocialLogin>
 
                 <div className="mt-7">
                   <div className="flex justify-center items-center">
                     <label className="mr-2">Create a new account?</label>
                     <Link
-                      to="/sing-up"
+                      to="/sign-up"
                       className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
                     >
                       Please Sign Up

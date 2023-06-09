@@ -106,7 +106,7 @@ const Navbar = () => {
       {!user && (
         <>
           <Link
-            to="/sing-in"
+            to="/sign-in"
             className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200"
           >
             Sign In
@@ -193,7 +193,7 @@ const Navbar = () => {
             <div className="pt-6">
               {!user && (
                 <Link
-                  to="/sing-in"
+                  to="/sign-in"
                   className="block px-4 py-3 mb-3 md:leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
                 >
                   Sign In
