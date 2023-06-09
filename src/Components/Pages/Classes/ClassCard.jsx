@@ -4,6 +4,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ClassCard = ({ classItem }) => {
+  const isAdmin=!true
+  const { user  } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const {
     _id,
     image,
@@ -14,12 +19,10 @@ const ClassCard = ({ classItem }) => {
     students,
     category,
   } = classItem;
-  const { user, isAdmin } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const handleAddtoClassItem = (classItem) => {
-    if (user && user.email) {
+    console.log(classItem);
+    if (user && user?.email) {
       const classItemData = {
         classItemId: _id,
         name,
@@ -29,7 +32,7 @@ const ClassCard = ({ classItem }) => {
         category,
         instructorName,
         availableSeats,
-        email: user.email,
+        email: user?.email,
       };
       fetch("http://localhost:5000/classItem", {
         method: "POST",
@@ -120,7 +123,7 @@ const ClassCard = ({ classItem }) => {
           className="mt-6 py-2 px-4 bg-blue-400 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300"
           disabled={availableSeats === 0 || isAdmin}
         >
-          {availableSeats === 0 || isAdmin ? "Not Available" : "Buy Now"}
+          {availableSeats === 0 || isAdmin ? "Not Available" : "Select"}
         </button>
       </div>
     </div>

@@ -1,75 +1,100 @@
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../UseHooks/useAxiosSecure";
+
 const AllUsers = () => {
-  const [axiosSecure] = useAxiosSecure();
-  const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await axiosSecure.get(`/users`);
-    return res.data;
-  });
+  const [users, setUsers] = useState([]);
+
+  const axiosSecure = useAxiosSecure();
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axiosSecure.get("/users"); // Replace with your actual API endpoint for fetching users
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      return [];
+    }
+  };
+
+  const refetchUsers = async () => {
+    try {
+      const data = await fetchUsers();
+      setUsers(data);
+    } catch (error) {
+      console.error("Error refetching users:", error);
+    }
+  };
 
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          refetch();
+    axiosSecure
+      .patch(`/users/admin/${user._id}`)
+      .then((response) => {
+        if (response.data.modifiedCount > 0) {
+          refetchUsers();
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Your are now admin",
+            title: "You are now an admin",
             showConfirmButton: false,
             timer: 1500,
           });
         }
+      })
+      .catch((error) => {
+        console.error("Error making user admin:", error);
       });
   };
+
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          refetch();
+    axiosSecure
+      .patch(`/users/instructor/${user._id}`)
+      .then((response) => {
+        if (response.data.modifiedCount > 0) {
+          refetchUsers();
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Your are now instructor",
+            title: "You are now an instructor",
             showConfirmButton: false,
             timer: 1500,
           });
         }
+      })
+      .catch((error) => {
+        console.error("Error making user instructor:", error);
       });
   };
 
   const handleDelete = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          refetch();
+    axiosSecure
+      .delete(`/users/${user._id}`)
+      .then((response) => {
+        if (response.data.deletedCount > 0) {
+          refetchUsers();
           Swal.fire({
             position: "top-center",
             icon: "success",
-            title: "Delete Successfull",
+            title: "Delete successful",
             showConfirmButton: false,
             timer: 1500,
           });
         }
+      })
+      .catch((error) => {
+        console.error("Error deleting user:", error);
       });
   };
+
+  useEffect(() => {
+    refetchUsers();
+  }, []);
+
   return (
     <div className="w-full">
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
-          {/* head */}
           <thead>
             <tr>
               <th>#</th>
@@ -94,7 +119,7 @@ const AllUsers = () => {
                         onClick={() => handleMakeAdmin(user)}
                         className="btn bg-blue-400 text-white btn-xs"
                       >
-                        Admin
+                        Make Admin
                       </button>
                     </>
                   )}
@@ -107,7 +132,7 @@ const AllUsers = () => {
                         onClick={() => handleMakeInstructor(user)}
                         className="btn bg-blue-400 text-white btn-xs"
                       >
-                        Instructor
+                        Make Instructor
                       </button>
                     </>
                   )}
@@ -118,7 +143,7 @@ const AllUsers = () => {
                     onClick={() => handleDelete(user)}
                     className="btn btn-ghost btn-xs bg-red-500 text-white"
                   >
-                    <FaTrashAlt></FaTrashAlt>
+                    <FaTrashAlt />
                   </button>
                 </td>
               </tr>

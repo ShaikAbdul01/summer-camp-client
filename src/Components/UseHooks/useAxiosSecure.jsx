@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
           (error.response.status === 401 || error.response.status === 403)
         ) {
           await logOut();
-          navigate("/login");
+          navigate("/sign-in");
         }
         return Promise.reject(error);
       }

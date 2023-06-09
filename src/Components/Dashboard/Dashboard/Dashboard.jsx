@@ -8,9 +8,9 @@ import Typed from "react-typed";
 const Dashboard = () => {
   // const [classItem] = useClassItem();
   const { user } = useContext(AuthContext);
-  const isAdmin = false;
+  const isAdmin = !false;
   const isInstructor = false;
-  const isStudent = !false;
+  const isStudent = false;
 
   return (
     <>
