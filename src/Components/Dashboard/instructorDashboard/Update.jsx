@@ -15,7 +15,7 @@ const Update = ({ classId }) => {
       .then((data) => setClassData(data));
   }, []);
 
-  console.log(classData);
+//   console.log(classData);
 
   if (!classData) {
     return <p>Loading...</p>;

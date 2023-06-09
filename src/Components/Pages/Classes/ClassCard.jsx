@@ -4,8 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ClassCard = ({ classItem }) => {
-  const isAdmin=!true
-  const { user  } = useContext(AuthContext);
+  const isAdmin = !true;
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -70,7 +70,7 @@ const ClassCard = ({ classItem }) => {
     }
   };
 
-  const handleSelect = () => {
+ /*  const handleSelect = () => {
     if (!user) {
       Swal.fire({
         title: "Please Login",
@@ -88,9 +88,23 @@ const ClassCard = ({ classItem }) => {
     } else if (availableSeats === 0 || isAdmin) {
       return;
     } else {
-      // Add your logic for selecting the class here
+      // Your logic for selecting the class goes here
+      Swal.fire({
+        title: "Confirm Selection",
+        text: "Are you sure you want to select this class?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Perform the selection action
+          console.log("Class selected!");
+        }
+      });
     }
-  };
+  }; */
 
   return (
     <div

@@ -1,24 +1,6 @@
-import { useQuery, QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-
-const queryClient = new QueryClient();
-
-const useInstructor = (instructorId) => {
-  return useQuery(['instructor', instructorId], () =>
-    fetch(`http://localhost:5000/instructors/${instructorId}`)
-      .then((res) => res.json())
-  );
-};
-
-const InstructorCard = ({ instructorId }) => {
-  const { data: instructor, isLoading } = useInstructor(instructorId);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
+const InstructorCard = ({ instructor }) => {
+  // console.log(instructor);
   const { image, name, email, classesTaken, classNames } = instructor;
-
   return (
     <>
       <div className="bg-white shadow-lg hover:shadow-xl transition duration-500 rounded-lg w-full">
@@ -51,16 +33,4 @@ const InstructorCard = ({ instructorId }) => {
   );
 };
 
-const App = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <div>
-        {/* Other components */}
-        <InstructorCard instructorId={1} />
-      </div>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  );
-};
-
-export default App;
+export default InstructorCard;
