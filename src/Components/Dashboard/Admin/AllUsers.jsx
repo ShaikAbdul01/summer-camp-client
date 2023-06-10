@@ -10,7 +10,7 @@ const AllUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axiosSecure.get("/users"); // Replace with your actual API endpoint for fetching users
+      const response = await axiosSecure.get("/users"); 
       return response.data;
     } catch (error) {
       console.error("Error fetching users:", error);
