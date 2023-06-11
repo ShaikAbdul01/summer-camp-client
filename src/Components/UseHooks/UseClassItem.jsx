@@ -15,7 +15,7 @@ export const useClassItem = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/classItem?email=${user?.email}`,
+        `https://artistry-academy-server.vercel.app/classItem?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${token}`,

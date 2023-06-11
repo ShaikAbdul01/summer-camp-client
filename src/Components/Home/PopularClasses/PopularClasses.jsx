@@ -8,7 +8,7 @@ const PopularClasses = () => {
   ); */
 
   const { data: classes = [] } = useQuery(["classes"], () =>
-    fetch("http://localhost:5000/classes").then((res) => res.json())
+    fetch("https://artistry-academy-server.vercel.app/classes").then((res) => res.json())
   );
 
   const sortedClasses = [...classes].sort((a, b) => b.students - a.students);

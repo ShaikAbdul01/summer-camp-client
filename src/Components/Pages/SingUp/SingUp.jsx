@@ -45,7 +45,7 @@ const SignUp = () => {
         updateUserProfile(name, photoURL)
           .then(() => {
             const saveUser = { name, email };
-            fetch(`http://localhost:5000/users`, {
+            fetch(`https://artistry-academy-server.vercel.app/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",

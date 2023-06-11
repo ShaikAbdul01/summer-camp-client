@@ -10,7 +10,7 @@ const Update = ({ classId }) => {
     // Update the classData state with the fetched data
 
     // Example API call
-    fetch(`http://localhost:5000/classes/${classId}`)
+    fetch(`https://artistry-academy-server.vercel.app/classes/${classId}`)
       .then((res) => res.json())
       .then((data) => setClassData(data));
   }, []);

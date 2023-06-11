@@ -11,7 +11,7 @@ const AllUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios("http://localhost:5000/users");
+      const response = await axios("https://artistry-academy-server.vercel.app/users");
       return response.data;
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -30,7 +30,7 @@ const AllUsers = () => {
 
   const handleMakeAdmin = (user) => {
     axios
-      .patch(`http://localhost:5000/users/admin/${user._id}`)
+      .patch(`https://artistry-academy-server.vercel.app/users/admin/${user._id}`)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           refetchUsers();
@@ -50,7 +50,7 @@ const AllUsers = () => {
 
   const handleMakeInstructor = (user) => {
     axios
-      .patch(`http://localhost:5000/users/instructor/${user._id}`)
+      .patch(`https://artistry-academy-server.vercel.app/users/instructor/${user._id}`)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           refetchUsers();
@@ -69,7 +69,7 @@ const AllUsers = () => {
   };
   const handleMakeStudent = (user) => {
     axios
-      .patch(`http://localhost:5000/users/student/${user._id}`)
+      .patch(`https://artistry-academy-server.vercel.app/users/student/${user._id}`)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           refetchUsers();

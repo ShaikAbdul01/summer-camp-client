@@ -19,9 +19,9 @@ const Dashboard = () => {
  /*  const [isAdmin] = UseAdmin();
   const [isInstructor] = UseInstructor();
   const [isStudent] = UseStudent(); */
-  const isAdmin = false;
+  const isAdmin = !false;
   const isInstructor = false;
-  const isStudent = !false;
+  const isStudent = false;
 
   const menuItems = [{ to: "/", label: "Home", icon: RiHomeLine }];
 

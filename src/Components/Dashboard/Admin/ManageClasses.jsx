@@ -7,7 +7,7 @@ const ManageClasses = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/classes")
+      .get("https://artistry-academy-server.vercel.app/classes")
       .then((response) => {
         setClasses(response.data);
       })
@@ -18,7 +18,7 @@ const ManageClasses = () => {
 
   const handleApprove = (classId) => {
     axios
-      .patch(`http://localhost:5000/classes/${classId}/status`, {
+      .patch(`https://artistry-academy-server.vercel.app/classes/${classId}/status`, {
         status: "approved",
       })
       .then(() => {
@@ -40,7 +40,7 @@ const ManageClasses = () => {
 
   const handleDeny = (classId) => {
     axios
-      .patch(`http://localhost:5000/classes/${classId}/status`, {
+      .patch(`https://artistry-academy-server.vercel.app/classes/${classId}/status`, {
         status: "denied",
       })
       .then(() => {

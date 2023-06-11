@@ -7,7 +7,7 @@ const InstructorClasses = () => {
   //   console.log(classes);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addClass/email/${user?.email}`)
+    fetch(`https://artistry-academy-server.vercel.app/addClass/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, [classes, user]);

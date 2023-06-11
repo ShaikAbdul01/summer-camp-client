@@ -36,7 +36,7 @@ const ClassCard = ({ classItem }) => {
         availableSeats,
         email: user?.email,
       };
-      fetch("http://localhost:5000/classItem", {
+      fetch("https://artistry-academy-server.vercel.app/classItem", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

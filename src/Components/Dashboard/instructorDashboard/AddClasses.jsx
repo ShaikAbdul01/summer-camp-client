@@ -23,7 +23,7 @@ const AddClasses = () => {
       status: "pending",
     };
 
-    fetch("http://localhost:5000/addClass", {
+    fetch("https://artistry-academy-server.vercel.app/addClass", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

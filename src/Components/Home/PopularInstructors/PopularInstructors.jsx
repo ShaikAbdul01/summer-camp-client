@@ -5,7 +5,7 @@ import InstructorCard from "../../Pages/Instructors/instructorCard";
 
 const PopularInstructors = () => {
   const { data: instructors = [] } = useQuery(["instructors"], () =>
-    fetch("http://localhost:5000/instructors").then((res) => res.json())
+    fetch("https://artistry-academy-server.vercel.app/instructors").then((res) => res.json())
   );
 
   const sortedInstructors = [...instructors].sort(
