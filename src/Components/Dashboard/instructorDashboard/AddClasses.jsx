@@ -15,8 +15,8 @@ const AddClasses = () => {
     const price = form?.price.value;
 
     const addClass = {
-      className,
       classImage,
+      className,
       email: instructorEmail,
       availableSeats,
       price,

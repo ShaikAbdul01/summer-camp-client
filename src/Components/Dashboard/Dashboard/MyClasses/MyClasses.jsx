@@ -1,10 +1,11 @@
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useClassItem } from "../../../UseHooks/UseClassItem";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const [classItem, refetch] = useClassItem();
-
+// console.log(classItem);
   const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
@@ -68,9 +69,11 @@ const MyClasses = () => {
                     >
                       <FaTrashAlt />
                     </button>
-                    <button className="btn bg-blue-400 text-white btn-xs">
-                      Pay Now
-                    </button>
+                    <Link to={`/dashboard/payment`}>
+                      <button className="btn bg-blue-400 text-white btn-xs">
+                        Pay Now
+                      </button>
+                    </Link>
                   </div>
                 </td>
               </tr>

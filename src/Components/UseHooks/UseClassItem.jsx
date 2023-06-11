@@ -33,7 +33,6 @@ export const useClassItem = () => {
 
   if (error) {
     console.log("Cart error:", error.message);
-    // You can display an error message to the user or handle the error as needed
   }
 
   return [classItem, refetch];

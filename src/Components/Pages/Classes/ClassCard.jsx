@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+// import UseAdmin from "../../UseHooks/UseAdmin";
 
 const ClassCard = ({ classItem }) => {
-  const isAdmin = !true;
+  // const isAdmin = UseAdmin();
+  const isAdmin = false;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -70,7 +72,7 @@ const ClassCard = ({ classItem }) => {
     }
   };
 
- /*  const handleSelect = () => {
+   /* const handleSelect = () => {
     if (!user) {
       Swal.fire({
         title: "Please Login",
@@ -104,8 +106,8 @@ const ClassCard = ({ classItem }) => {
         }
       });
     }
-  }; */
-
+  }; 
+ */
   return (
     <div
       className={`bg-white shadow-lg hover:shadow-xl transition duration-500 rounded-lg w-full ${

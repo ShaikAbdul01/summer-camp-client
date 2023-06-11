@@ -1,13 +1,14 @@
 import Typed from "react-typed";
-import useAxiosSecure from "../../UseHooks/useAxiosSecure";
 import PopularItem from "./PopularItem";
 import { useQuery } from "@tanstack/react-query";
 
 const PopularClasses = () => {
-  const axiosSecure = useAxiosSecure();
+  /*  const { data: classes = [] } = useQuery(["classes"], () =>
+    axiosSecure.get("/classes").then((res) => res.data)
+  ); */
 
   const { data: classes = [] } = useQuery(["classes"], () =>
-    axiosSecure.get("/classes").then((res) => res.data)
+    fetch("http://localhost:5000/classes").then((res) => res.json())
   );
 
   const sortedClasses = [...classes].sort((a, b) => b.students - a.students);
