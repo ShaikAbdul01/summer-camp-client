@@ -10,16 +10,14 @@ const Footer = () => {
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12 ">
             <div className="mb-10 w-full">
               <Link to="/" className="mb-6 inline-block ">
-                {/*  <img
-                  src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
-                  alt="logo"
-                  className="max-w-full"
-                /> */}
                 <h2 className="text-xl font-bold">Artistry Academy</h2>
               </Link>
               <p className="text-body-color mb-7 text-base">
-                Sed ut perspiciatis undmnis is iste natus error sit amet
-                voluptatem totam rem aperiam.
+                Artistry Academy is a comprehensive online platform dedicated to
+                promoting and nurturing artistic skills and creativity. With a
+                wide range of features and resources, Artistry Academy aims to
+                provide a rich learning experience for individuals passionate
+                about art.
               </p>
               <p className="text-dark flex items-center justify-center text-sm font-medium ">
                 <span className=" mr-3">
@@ -79,7 +77,7 @@ const Footer = () => {
                     to="/"
                     className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
                   >
-                    About TailGrids
+                    About
                   </Link>
                 </li>
                 <li>
@@ -181,7 +179,7 @@ const Footer = () => {
                   <SocialIcon url="https://linkedin.com/jaketrent" />
                 </Link>
               </div>
-              <p className="text-body-color text-base">&copy; 2023 Shaik</p>
+              <p className="text-body-color text-base">&copy; 2023 Artistry Academy</p>
             </div>
           </div>
         </div>
